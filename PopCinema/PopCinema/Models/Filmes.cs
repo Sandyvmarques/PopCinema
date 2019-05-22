@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,16 +10,16 @@ namespace PopCinema.Models
 	public class Filmes
 	{
 		[Key]
+		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int ID { get; set; }
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public string Titulo { get; set; }
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public int Ano { get; set; }
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public string Sinopse { get; set; }
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public string Capa { get; set; }
-		[Required]
 		public string Trailer { get; set; }
 		//Relacoes M-N
 		// 1 filme tem n Categorias

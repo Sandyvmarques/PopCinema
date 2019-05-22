@@ -12,15 +12,18 @@ namespace PopCinema.Models
 		[Key]
 		public int ID { get; set; }
 
-		[Required]
+		[RegularExpression("[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+" +
+								"(( |'|-| e | da | dos | de | d')" +
+								"[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+){1,3}",
+								ErrorMessage = "The {0} can only contain leters and spaces.Ex: Louis Lane")]
 		public string Nome { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public string Username { get; set; }
 
 		public string DataNascimento { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "The {0} is required.")]
 		public string Email { get; set; }
 
 		public string Foto { get; set; }
