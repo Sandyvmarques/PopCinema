@@ -40,9 +40,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Sinopse)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capa)
-        </td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Capa)
+			<img src="~/imagens/CapasFilmes/@item.Capa" height="50" />
+
+		</td>
         <td>
             @Html.DisplayFor(modelItem => item.Trailer)
         </td>
