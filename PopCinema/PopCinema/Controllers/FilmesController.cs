@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -41,14 +42,36 @@ namespace PopCinema.Controllers
             return View();
         }
 
-        // POST: Filmes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filmes)
-        {
-            if (ModelState.IsValid)
+		// POST: Filmes/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Create([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filmes, HttpPostedFileBase[] UploadImag)
+		{
+			foreach (HttpPostedFileBase Uploadimagem in UploadImag)
+			{
+				string nome = System.IO.Path.GetFileName(Uploadimagem.FileName);
+				Uploadimagem.SaveAs(Server.MapPath("~/Imagens/CapaFilmes/" + nome));
+				string filename = "/Imagens/CapaFilmes" + nome;
+			int idNovo = db.Filmes.Max(a => a.ID) + 1;
+			filmes.ID = idNovo;
+			string nomeImg = "Filme" + idNovo + ".jpg";
+			string path = "";
+
+			if (UploadImag != null)
+			{
+				path = Path.Combine(Server.MapPath("~/imagens/"), nomeImg);
+				filmes.Capa = nomeImg;
+			}
+			else
+			{
+				ModelState.AddModelError("", "No Image");
+				return View(filmes);
+			}
+		}
+		
+				if (ModelState.IsValid)
             {
                 db.Filmes.Add(filmes);
                 db.SaveChanges();

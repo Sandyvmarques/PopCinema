@@ -19,7 +19,7 @@
 			//*********************************************************************
 			// adiciona Filmes
 			var filmes = new List<Filmes> {
-			new Filmes {ID=1, Titulo="Avengers:Endgame",Ano=2019, Sinopse="TaniaVieira.jpg" ,  Capa="AvengersEndgame.jpg",Trailer="Avengers: EndgameVID"},
+			new Filmes {ID=1, Titulo="Avengers:Endgame",Ano=2019, Sinopse="TaniaVieira.jpg" ,   Capa="AvengersEndgame.jpg",Trailer="Avengers: EndgameVID"},
 			new Filmes {ID=2, Titulo="Captain Marvel",   Ano=2019, Sinopse="AntonioRocha.jpg" , Capa="CaptainMarvel.jpg",  Trailer="Captain MarvelVID"},
 			new Filmes {ID=3, Titulo="Glass ",           Ano=2019, Sinopse="AndreSilveira.jpg" ,Capa="Glass.jpg",          Trailer="Glass VID"},
 			new Filmes {ID=4, Titulo="Shazam",           Ano=2019, Sinopse="LurdesVieira.jpg" , Capa="Shazam.jpg",          Trailer="ShazamVID"},
