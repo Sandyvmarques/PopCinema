@@ -1,0 +1,58 @@
+﻿@model PopCinema.Models.Filmes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Filmes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sinopse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sinopse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trailer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
