@@ -9,7 +9,7 @@ namespace PopCinema.Models
 	public class Categorias
 	{
 		[Key]
-		public int Id { get; set; }
+		public int ID { get; set; }
 		[Required]
 		public string Nome { get; set; }
 		//Relacao M-N

@@ -9,14 +9,14 @@ namespace PopCinema.Models
 	public class Atores
 	{
 		[Key]
-		public int Id { get; set; }
+		public int ID { get; set; }
 		[Required]
-		public string NomeAtor { get; set; }
+		public string Nome { get; set; }
 		[Required]
 		public String Biografia { get; set; }
 		public String Sexo { get; set; }
 		public String Nacionalidade { get; set; }
-		public DateTime DataNascimento { get; set; }
+		public string DataNascimento { get; set; }
 		[Required]
 		public String FotoAtor { get; set; }
 		//Relacao M-N

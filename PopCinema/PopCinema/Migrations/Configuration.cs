@@ -1,11 +1,13 @@
 ﻿namespace PopCinema.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+	using PopCinema.Models;
+	using System;
+	using System.Collections.Generic;
+	using System.Data.Entity;
+	using System.Data.Entity.Migrations;
+	using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PopCinema.Models.PopCinemaDB>
+	internal sealed class Configuration : DbMigrationsConfiguration<PopCinema.Models.PopCinemaDB>
     {
         public Configuration()
         {
@@ -19,7 +21,7 @@
 			var filmes = new List<Filmes> {
 			new Filmes {ID=1, Titulo="Avengers: Endgame",Ano=2019, Sinopse="TaniaVieira.jpg" ,  Capa="Avengers: Endgame.jpg",Trailer="Avengers: EndgameVID"},
 			new Filmes {ID=2, Titulo="Captain Marvel",   Ano=2019, Sinopse="AntonioRocha.jpg" , Capa="Captain Marvel.jpg",  Trailer="Captain MarvelVID"},
-			new Filmes {ID=3, Titulo="Glass ",           Ano=2019, Sinopse="AndreSilveira.jpg" ,    Capa="Glass .jpg",          Trailer="Glass VID"},
+			new Filmes {ID=3, Titulo="Glass ",           Ano=2019, Sinopse="AndreSilveira.jpg" ,Capa="Glass .jpg",          Trailer="Glass VID"},
 			new Filmes {ID=4, Titulo="Shazam",           Ano=2019, Sinopse="LurdesVieira.jpg" , Capa="Shazam.jpg",          Trailer="ShazamVID"},
 			new Filmes {ID=5, Titulo="Hellboy",         Ano=2019, Sinopse="ClaudiaPinto.jpg" ,  Capa="Hellboy.jpg",         Trailer="HellboyVID"},
 			new Filmes {ID=6, Titulo="Aquaman",         Ano=2018, Sinopse="RuiVieira.jpg" ,     Capa="Aquaman.jpg",         Trailer="AquamanVID"},
