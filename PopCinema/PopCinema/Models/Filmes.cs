@@ -18,7 +18,7 @@ namespace PopCinema.Models
 		public int Ano { get; set; }
 		[Required(ErrorMessage = "The {0} is required.")]
 		public string Sinopse { get; set; }
-		[Required(ErrorMessage = "The {0} is required.")]
+		
 		public string Capa { get; set; }
 		public string Trailer { get; set; }
 		//Relacoes M-N

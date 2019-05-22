@@ -47,38 +47,52 @@ namespace PopCinema.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filmes, HttpPostedFileBase[] UploadImag)
+		public ActionResult Create([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filme, HttpPostedFileBase UploadImag)
 		{
-			foreach (HttpPostedFileBase Uploadimagem in UploadImag)
-			{
-				string nome = System.IO.Path.GetFileName(Uploadimagem.FileName);
-				Uploadimagem.SaveAs(Server.MapPath("~/Imagens/CapaFilmes/" + nome));
-				string filename = "/Imagens/CapaFilmes" + nome;
-			int idNovo = db.Filmes.Max(a => a.ID) + 1;
-			filmes.ID = idNovo;
-			string nomeImg = "Filme" + idNovo + ".jpg";
 			string path = "";
+			bool PictureExist=false;
 
-			if (UploadImag != null)
+			if (UploadImag == null)
 			{
-				path = Path.Combine(Server.MapPath("~/imagens/"), nomeImg);
-				filmes.Capa = nomeImg;
+				filme.Capa = "noPoster.jpg";
 			}
 			else
 			{
-				ModelState.AddModelError("", "No Image");
-				return View(filmes);
+				if (UploadImag.ContentType == "image/jpg" ||
+					UploadImag.ContentType == "image/png")
+				{
+					string extensao = Path.GetExtension(UploadImag.FileName).ToLower();
+					Guid g;
+					g = Guid.NewGuid();
+					string nome = g.ToString() + extensao;
+					path= Path.Combine(Server.MapPath("~/Imagens/CapasFilmes"), nome);
+					filme.Capa = nome;
+					PictureExist = true;
+				}
 			}
-		}
 		
 				if (ModelState.IsValid)
             {
-                db.Filmes.Add(filmes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+				try
+				{
+					db.Filmes.Add(filme);
+					db.SaveChanges();
+					if (PictureExist)
 
-            return View(filmes);
+						UploadImag.SaveAs(path);
+					return RedirectToAction("Index");
+
+
+				}
+				catch (Exception)
+				{
+					ModelState.AddModelError("", "Ocorreu um erro com a escrita " +
+										"dos dados do novo Agente");
+				}
+
+				}
+
+            return View(filme);
         }
 
         // GET: Filmes/Edit/5
