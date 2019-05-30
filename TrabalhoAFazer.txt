@@ -1,0 +1,80 @@
+																PARTE DA RUTE:
+
+																1- Tratar do atributo do relacionamento filme + atores personagens 	(nao sei se tratei disso)
+																2- Falta a tabela no detalhe dos filmes;	
+																3- Autenticacao;
+																4- Permisoes de Acesso
+																5- 
+																NOTA: ver o codigo do Rafael
+/***************************************************************************************************************************************************************************
+produzir um proj novo. Instala as classes e views de autenticacao 
+como consequencia fica se com dois projetos
+sera necessario fundir os projetos 
+
+Install-Package Microsoft.AspNet.Identity.Samples -Pre 
+
+
+	/********************************************************************Autenticacao**************************************************************************************************/
+
+1- MASTER -> merge from AGENTES to MASTER
+
+2- Novo branch em master Autenticacao
+
+3- Copiar "Install-Package Microsoft.AspNet.Identity.Samples -Pre 
+", no package manager
+		File 'Views\_ViewStart.cshtml' already exists in project 'Multas'. Do you want to overwrite it?
+		[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [?] Help (default is "N"): 
+		a
+
+4- commit : Adição da ferramenta de autenticacao
+
+5-update-database
+
+6-HomeController select IdentitySample -> ctrl +F -> substituir por Multas (veio do namespace de agentes controller) ->
+replace all -> save all -> close all documents
+
+7- Web.config -> copiar " connectionString="Data Source=(LocalDB)\MSSQLLocalDB;"  MSSQLLocalDB e substituir em ng="Data Source=(LocalDb)\v11;"
+->ng="Data Source=(LocalDb)\MSSQLLocalDB;
+
+8- Apagar ->
+			  <add name="DefaultConnection" 
+        connectionString="Data Source=(LocalDb)\MSSQLLocalDB;
+        Initial Catalog=Multas-2-1-alpha1;Integrated Security=SSPI" 
+        providerName="System.Data.SqlClient" />
+		
+9- colar MultasConnectionString -> paste em IdentityModels ->	 public ApplicationDbContext()
+																: base("MultasConnectionString", throwIfV1Schema: false)
+
+10- copiar da classe multasDB para IndetityModels e apagar de multasDB ->
+								// vamos colocar, aqui, as instruções relativas às tabelas do 'negócio'
+								// descrever os nomes das tabelas na Base de Dados
+								public virtual DbSet<Multas> Multas { get; set; } // tabela Multas
+								public virtual DbSet<Condutores> Condutores { get; set; } // tabela Condutores
+								public virtual DbSet<Agentes> Agentes { get; set; } // tabela Agentes
+								public virtual DbSet<Viaturas> Viaturas { get; set; } // tabela Viaturas
+
+								protected override void OnModelCreating(DbModelBuilder modelBuilder)
+								{
+									modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+									modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+									base.OnModelCreating(modelBuilder);
+								}
+
+11- Apagar a classe MultasDB -> build e vai se obter um erro -> AgenteController substiruir multasDB por ApplicationDbContext
+																Configuration substiruir multasDB por ApplicationDbContext
+							
+12- commit -> concretizacao da fusao dos dois projetos
+
+13- criar um registo e fazer login aA1@a.com
+
+
+/********************************************************************Permisoes de Acesso***********************************************************************************************/
+
+
+1- clicar na BD -> tables -> aspNetRoles -> show table data -> criar utilizadores admin, gestor blabla
+
+2- AgenteController -> [Authorize] 
+
+3-// GET: Agentes
+		[Authorize(Roles ="RecursosHumanos,Agente")]
+		public ActionResult Index() 
