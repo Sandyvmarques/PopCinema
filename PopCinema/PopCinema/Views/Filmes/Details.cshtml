@@ -69,20 +69,20 @@
 
 
 		</tr>
-		@foreach (var filme in Model.Atores)
+		@foreach (var ator in Model.Atores)
 		{
 		<tr>
 			<td>
-				@Html.DisplayFor(modelItem => filme.ID)
+				@Html.DisplayFor(modelItem => ator.ID)
 			</td>
 			<td>
-				@filme.Nome
+				@ator.Nome
 			</td>
 			<td>
-				@filme.Nacionalidade
+				@ator.Nacionalidade
 			</td>
 			<td>
-				@filme.Sexo
+				@ator.Sexo
 			</td>
 		</tr>
 		}

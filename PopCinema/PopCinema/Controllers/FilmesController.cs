@@ -22,17 +22,29 @@ namespace PopCinema.Controllers
         }
 
         // GET: Filmes/Details/5
+        /// <summary>
+        /// Mostra os dados de um Filme
+        /// </summary>
+        /// <param name="id">identifica um filme</param>
+        /// <returns>devolve a View com os dados</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //caso não seja devolvido nenhum id, o utilizador
+                //retorna para a página Index
+
+                return RedirectToAction("Index");
             }
+
             Filmes filmes = db.Filmes.Find(id);
             if (filmes == null)
             {
-                return HttpNotFound();
+                //o filme não foi encontrado (não existe)
+                return RedirectToAction("Index");
             }
+
+            //enviar para a View os dados do Filme que foi procurado e encontrado
             return View(filmes);
         }
 

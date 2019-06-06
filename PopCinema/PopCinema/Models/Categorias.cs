@@ -16,9 +16,7 @@ namespace PopCinema.Models
 
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		[RegularExpression("[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+" +
-							"(( |'|-| e | da | dos | de | d')" +
-							"[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+){1,3}",
+		[RegularExpression("[A-Z][a-z]+( [A-Z][a-z]+)*",
 							ErrorMessage = "The {0} can only contain leters and spaces.Ex: Louis Lane")]
 		public string Nome { get; set; }
 		//Relacao M-N
