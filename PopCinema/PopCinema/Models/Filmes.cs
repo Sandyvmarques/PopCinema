@@ -10,7 +10,7 @@ namespace PopCinema.Models
     public class Filmes
     {
         public Filmes() {
-            Atores = new HashSet<Atores>();
+            Atores = new HashSet<FilmesAtores>();
         }
       
 		[Key]
@@ -34,7 +34,7 @@ namespace PopCinema.Models
 		// 1 filme tem n Categorias
 		public virtual ICollection<Categorias> Categorias { get; set; }
 		// 1 filme tem n Atores
-		public virtual ICollection<Atores> Atores { get; set; }
+		public virtual ICollection<FilmesAtores> Atores { get; set; }
 		// 1 filme tem n Utilizadores
 		public virtual ICollection<Utilizadores> Utilizadores { get; set; }
 

@@ -61,11 +61,11 @@
 
 			<th>@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().ID)</th>
 
-			<th>@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nome)</th>
+			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nome)*@</th>
 
-			<th>@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nacionalidade)  </th>
-
-			<th>@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Sexo)</th>
+			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nacionalidade)*@  </th>
+  
+			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Sexo)*@</th>
 
 
 		</tr>
@@ -73,17 +73,17 @@
 		{
 		<tr>
 			<td>
-				@Html.DisplayFor(modelItem => ator.ID)
+				@Html.DisplayFor(modelItem => ator.Personagem)
 			</td>
-			<td>
-				@ator.Nome
-			</td>
-			<td>
-				@ator.Nacionalidade
-			</td>
-			<td>
-				@ator.Sexo
-			</td>
+            <td>
+                @*@ator.Nome*@
+            </td>
+            <td>
+                @*@ator.Nacionalidade*@
+            </td>
+            <td>
+                @*@ator.Sexo*@
+            </td>
 		</tr>
 		}
 	</table>

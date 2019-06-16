@@ -12,55 +12,59 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+
+
         }
 
         protected override void Seed(PopCinema.Models.PopCinemaDB context)
         {
-			//*********************************************************************
-			// adiciona Filmes
-			var filmes = new List<Filmes> {
-			new Filmes {ID=1, Titulo="Avengers:Endgame",Ano=2019, Sinopse="TaniaVieira.jpg" ,   Capa="AvengersEndgame.jpg",Trailer="Avengers: EndgameVID"},
-			new Filmes {ID=2, Titulo="Captain Marvel",   Ano=2019, Sinopse="AntonioRocha.jpg" , Capa="CaptainMarvel.jpg",  Trailer="Captain MarvelVID"},
-			new Filmes {ID=3, Titulo="Glass ",           Ano=2019, Sinopse="AndreSilveira.jpg" ,Capa="Glass.jpg",          Trailer="Glass VID"},
-			new Filmes {ID=4, Titulo="Shazam",           Ano=2019, Sinopse="LurdesVieira.jpg" , Capa="Shazam.jpg",          Trailer="ShazamVID"},
-			new Filmes {ID=5, Titulo="Hellboy",         Ano=2019, Sinopse="ClaudiaPinto.jpg" ,  Capa="Hellboy.jpg",         Trailer="HellboyVID"},
-			new Filmes {ID=6, Titulo="Aquaman",         Ano=2018, Sinopse="RuiVieira.jpg" ,     Capa="Aquaman.jpg",         Trailer="AquamanVID"},
-			new Filmes {ID=7, Titulo="Escape Room",     Ano=2019, Sinopse="PauloVieira.jpg" ,   Capa="EscapeRoom.jpg",     Trailer="Escape RoomVID"},
-			new Filmes {ID=8, Titulo="Greta",           Ano=2019, Sinopse="AugustoCarvalho.jpg",Capa="Greta.jpg",           Trailer="GretaVID"},
-			new Filmes {ID=9, Titulo="The Hustle",      Ano=2019, Sinopse="BeatrizPinto.jpg" ,  Capa="TheHustle.jpg",      Trailer="The HustleVID"},
-			new Filmes {ID=10,Titulo="The Favourite",   Ano=2018, Sinopse="JoseAlves.jpg" ,     Capa="TheFavourite.jpg",   Trailer="The FavouriteVID"},
-		};
-			filmes.ForEach(aa => context.Filmes.AddOrUpdate(a => a.Titulo, aa));
-			context.SaveChanges();
+            
+                //*********************************************************************
+                // adiciona Filmes
+                var filmes = new List<Filmes> {
+            new Filmes {ID=1, Titulo="Avengers:Endgame",Ano=2019, Sinopse="TaniaVieira.jpg" ,   Capa="AvengersEndgame.jpg",Trailer="Avengers: EndgameVID"},
+            new Filmes {ID=2, Titulo="Captain Marvel",   Ano=2019, Sinopse="AntonioRocha.jpg" , Capa="CaptainMarvel.jpg",  Trailer="Captain MarvelVID"},
+            new Filmes {ID=3, Titulo="Glass ",           Ano=2019, Sinopse="AndreSilveira.jpg" ,Capa="Glass.jpg",          Trailer="Glass VID"},
+            new Filmes {ID=4, Titulo="Shazam",           Ano=2019, Sinopse="LurdesVieira.jpg" , Capa="Shazam.jpg",          Trailer="ShazamVID"},
+            new Filmes {ID=5, Titulo="Hellboy",         Ano=2019, Sinopse="ClaudiaPinto.jpg" ,  Capa="Hellboy.jpg",         Trailer="HellboyVID"},
+            new Filmes {ID=6, Titulo="Aquaman",         Ano=2018, Sinopse="RuiVieira.jpg" ,     Capa="Aquaman.jpg",         Trailer="AquamanVID"},
+            new Filmes {ID=7, Titulo="Escape Room",     Ano=2019, Sinopse="PauloVieira.jpg" ,   Capa="EscapeRoom.jpg",     Trailer="Escape RoomVID"},
+            new Filmes {ID=8, Titulo="Greta",           Ano=2019, Sinopse="AugustoCarvalho.jpg",Capa="Greta.jpg",           Trailer="GretaVID"},
+            new Filmes {ID=9, Titulo="The Hustle",      Ano=2019, Sinopse="BeatrizPinto.jpg" ,  Capa="TheHustle.jpg",      Trailer="The HustleVID"},
+            new Filmes {ID=10,Titulo="The Favourite",   Ano=2018, Sinopse="JoseAlves.jpg" ,     Capa="TheFavourite.jpg",   Trailer="The FavouriteVID"},
+        };
+                filmes.ForEach(aa => context.Filmes.AddOrUpdate(a => a.Titulo, aa));
+                context.SaveChanges();
 
 
-            //*********************************************************************
-            // adiciona Categorias
-            var categorias = new List<Categorias> {
+                //*********************************************************************
+                // adiciona Categorias
+                var categorias = new List<Categorias> {
                    new Categorias {ID=1,    Nome="Comedy"},
                    new Categorias {ID=2,    Nome="Horror"},
                    new Categorias {ID=3,    Nome="Action"},
                    new Categorias {ID=4,    Nome="Drama"},
                    new Categorias {ID=5,    Nome="Thriler"}
                 };
-            categorias.ForEach(aa => context.Categorias.AddOrUpdate(a => a.Nome, aa));
-            context.SaveChanges();
+                categorias.ForEach(aa => context.Categorias.AddOrUpdate(a => a.Nome, aa));
+                context.SaveChanges();
 
 
-            //*********************************************************************
-            // adiciona Utilizadores
-            var utilizadores = new List<Utilizadores> {
+                //*********************************************************************
+                // adiciona Utilizadores
+                var utilizadores = new List<Utilizadores> {
                new Utilizadores {ID=1, Nome="Tania Vieira",    Username="  TaniaVieira123",    DataNascimento="13/06/1981", Email="  TaniaVieira@hotmail.com",   Foto="  TaniaVieira.jpg"},
                new Utilizadores {ID=2, Nome="Antonio Rocha",   Username="  AntonioRocha123",   DataNascimento="30/06/1998" ,     Email="  AntonioRocha@hotmail.com",  Foto="  AntonioRocha.jpg"},
                new Utilizadores {ID=3, Nome="Andre Silveira",  Username="  AndreSilveira123",  DataNascimento="21/12/1948", Email="  AndreSilveira@hotmail.com", Foto="  AndreSilveira.jpg"},
                new Utilizadores {ID=4, Nome="Lurdes Vieira",   Username="  LurdesVieira123",   DataNascimento="30/06/1998" ,    Email="  LurdesVieira@hotmail.com",  Foto="  LurdesVieira.jpg"},
             };
-            utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
-            context.SaveChanges();
+                utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
+                context.SaveChanges();
 
-            //*********************************************************************
-            // adiciona Atores
-            var atores = new List<Atores> {
+                //*********************************************************************
+                // adiciona Atores
+                var atores = new List<Atores> {
                 new Atores {ID=1,  Nome="Chris Evans",
                             Biografia ="Christopher Robert Evans is an American actor. Evans is known for his superhero roles as the Marvel Comics characters Captain America in the Marvel Cinematic Universe and Human Torch in Fantastic Four (2005) and its 2007 sequel.",
                             Sexo="Masculino",   Nacionalidade="Washington, D.C., U.S.",
@@ -80,11 +84,11 @@
                 new Atores {ID=5,  Nome="James McAvoy",
                             Biografia ="James McAvoy (/ˈmækəvɔɪ/; born 21 April 1979) is a Scottish actor. He made his acting debut as a teen in The Near Room (1995) and made mostly television appearances until 2003, when his feature film career began. His notable television workistmas. ",
                             Sexo="Masculino",   Nacionalidade="Glasgow, Scotland[1",
-                            DataNascimento="21/04/1979",FotoAtor ="JamesMcAvoy.jpg"},
+                            DataNascimento="21/04/1979",FotoAtor ="JamesMcAvoy.jpg" },
                 new Atores {ID=6,  Nome="Bruce Willis ",
                             Biografia ="Walter Bruce Willis (born March 19, 1955) is an American actor, producer, and singer. Born to a German mother and American father in Idar-Oberstein, Germany, he moved to the United States with his family in 1957. His career began on the Off-–2013), aoles. ",
                             Sexo="Masculino",   Nacionalidade="Idar-Oberstein, Rhineland-Palatinate, West Germany",
-                            DataNascimento="19/03/1955",FotoAtor ="BruceWillis.jpg"},
+                            DataNascimento="19/03/1955",FotoAtor ="BruceWillis.jpg" },
                 new Atores {ID=7,  Nome="Zachary Levi",
                             Biografia ="Zachary Levi (born Zachary Levi Pugh; September 29, 1980)[1] is an American actor and singer. He received critical acclaim for starring as Cheived a Tony Award nomination. He voiced Flynn Rider in the 2010 animated film Tangled, in which he performed the duet ",
                             Sexo="Masculino",   Nacionalidade="Lake Charles, Louisiana, U.S",
@@ -142,9 +146,21 @@
                             Sexo="Feminino",Nacionalidade="Paris, France",
                             DataNascimento ="23/06/1982",FotoAtor="EmmaStone.jpg"},
             };
-            atores.ForEach(aa => context.Atores.AddOrUpdate(a => a.Nome, aa));
-            context.SaveChanges();
+                atores.ForEach(aa => context.Atores.AddOrUpdate(a => a.Nome, aa));
+                context.SaveChanges();
 
+
+                var filmesAtores = new List<FilmesAtores>
+            {
+               new FilmesAtores {AtoresFK=1, FilmesFK=1, Personagem="Captain America"},
+               new FilmesAtores {AtoresFK=2, FilmesFK=1, Personagem="Thor"},
+               new FilmesAtores {AtoresFK=3, FilmesFK=1, Personagem="Nick Furry"},
+               new FilmesAtores {AtoresFK=4, FilmesFK=1, Personagem="Captain Marvel"},
+               new FilmesAtores {AtoresFK=4, FilmesFK=2, Personagem="Captain Marvel"}
+            };
+                filmesAtores.ForEach(fa => context.FilmesAtores.AddOrUpdate(p => p.Personagem, fa));
+                context.SaveChanges();
+         
 
         }
 	}
