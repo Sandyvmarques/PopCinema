@@ -15,8 +15,9 @@ namespace PopCinema.Models
 		public virtual DbSet<Filmes> Filmes { get; set; } // tabela Condutores
 		public virtual DbSet<Categorias> Categorias { get; set; } // tabela Agentes
 		public virtual DbSet<Utilizadores> Utilizadores { get; set; } // tabela Viaturas
+        public virtual DbSet<FilmesAtores> FilmesAtores { get; set; } // tabela Viaturas
 
-	protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
 
 		modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 		modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
