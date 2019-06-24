@@ -11,7 +11,7 @@ namespace PopCinema.Models
 	{
 
         public Atores() {
-            ListaFilmes = new HashSet<FilmesAtores>();
+            ListaPersonagens = new HashSet<FilmesAtores>();
         }
 		[Key]
 		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -41,7 +41,7 @@ namespace PopCinema.Models
 
 		//Relacao M-N
 		// 1 Ator participa em n Filmes
-		public virtual ICollection<FilmesAtores> ListaFilmes { get; set; }
+		public virtual ICollection<FilmesAtores> ListaPersonagens { get; set; }
        
         /*// FK para o Filme
         [ForeignKey("Filmes")]

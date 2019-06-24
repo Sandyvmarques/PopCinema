@@ -155,7 +155,6 @@
                new FilmesAtores {AtoresFK=1, FilmesFK=1, Personagem="Captain America"},
                new FilmesAtores {AtoresFK=2, FilmesFK=1, Personagem="Thor"},
                new FilmesAtores {AtoresFK=3, FilmesFK=1, Personagem="Nick Furry"},
-               new FilmesAtores {AtoresFK=4, FilmesFK=1, Personagem="Captain Marvel"},
                new FilmesAtores {AtoresFK=4, FilmesFK=2, Personagem="Captain Marvel"}
             };
                 filmesAtores.ForEach(fa => context.FilmesAtores.AddOrUpdate(p => p.Personagem, fa));

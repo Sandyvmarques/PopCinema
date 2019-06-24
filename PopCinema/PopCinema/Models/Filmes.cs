@@ -10,7 +10,12 @@ namespace PopCinema.Models
     public class Filmes
     {
         public Filmes() {
-            Atores = new HashSet<FilmesAtores>();
+            ListaAtores = new HashSet<FilmesAtores>();
+
+            ListaCategorias = new HashSet<Categorias>();
+
+            ListaClassificacao = new HashSet<FilmesUtilizadores>();
+
         }
       
 		[Key]
@@ -32,11 +37,10 @@ namespace PopCinema.Models
 
 		//Relacoes M-N
 		// 1 filme tem n Categorias
-		public virtual ICollection<Categorias> Categorias { get; set; }
+		public virtual ICollection<Categorias> ListaCategorias { get; set; }
 		// 1 filme tem n Atores
-		public virtual ICollection<FilmesAtores> Atores { get; set; }
-		// 1 filme tem n Utilizadores
-		public virtual ICollection<Utilizadores> Utilizadores { get; set; }
-
-	}
+		public virtual ICollection<FilmesAtores> ListaAtores { get; set; }
+        // 1 filme tem n Utilizadores
+        public virtual ICollection<FilmesUtilizadores> ListaClassificacao { get; set; }
+    }
 }

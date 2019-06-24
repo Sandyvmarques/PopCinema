@@ -142,6 +142,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Filmes.cs" />
     <Compile Include="Models\FilmesAtores.cs" />
+    <Compile Include="Models\FilmesUtilizadores.cs" />
     <Compile Include="Models\PopCinemaDB.cs" />
     <Compile Include="Models\Utilizadores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
