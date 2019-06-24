@@ -12,8 +12,8 @@ namespace PopCinema.Models
         [Key]
         public int IdClassificacao { get; set; }
 
-        [RegularExpression("[0-10]")]
-        public int Classificacao { get; set; }
+        [RegularExpression("[0-10]" )]
+        public double Classificacao { get; set; }
 
         [ForeignKey("Filme")]
         public int FilmeFK { get; set; }

@@ -17,9 +17,9 @@ namespace PopCinema.Models
             ListaClassificacao = new HashSet<FilmesUtilizadores>();
 
         }
-      
-		[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
+
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
 		public int ID { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]

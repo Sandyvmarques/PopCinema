@@ -4,52 +4,78 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*para aparecer o nome do filme como titulo quando se ve os detalhes do mesmo*@
+<h2> @Html.DisplayNameFor(model => model.Titulo)</h2>
 
 <div>
 	<h4>Filmes</h4>
 	<hr />
-	<dl class="dl-horizontal">
-		<dt>
-			@Html.DisplayNameFor(model => model.Titulo)
-		</dt>
+    <dl class="dl-horizontal">
+        @* <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Titulo)
-		</dd>
-		<dt>
 
-		</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>*@
+        <dt>
+          
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Capa)
-			<img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
-		</dd>
-		<dt>
-			@Html.DisplayNameFor(model => model.Ano)
-		</dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.Capa)
+            <img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Ano)
-		</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
 
-		<dt>
-			@Html.DisplayNameFor(model => model.Sinopse)
-		</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sinopse)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Sinopse)
-		</dd>
+        <dd>
+            @Html.DisplayFor(model => model.Sinopse)
+        </dd>
 
-		<dt>
-			@Html.DisplayNameFor(model => model.Trailer)
-		</dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Trailer)
+        </dt>
 
-		<dd>
-			@Html.DisplayFor(model => model.Trailer)
-		</dd>
+        <dd>
+            <iframe width="560"
+                    height="315"
+                    src="@Html.DisplayNameFor(model => model.Trailer)"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </dd>
 
-	</dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.ListaCategorias)
+
+
+            }
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListaCategorias)
+            @foreach (var categoria in Model.ListaCategorias)
+            {
+                <span>
+                    @Html.DisplayFor(c => categoria.Nome)<br />
+                </span>
+            }
+        </dd>
+
+
+    </dl>
 
 	<hr />
 
@@ -59,30 +85,28 @@
 
 		<tr>
 
-			<th>@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().ID)</th>
+			<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().ID)</th>
 
-			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nome)*@</th>
+			@*<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nome)</th>
 
-			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Nacionalidade)*@  </th>
+            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nacionalidade)  </th>
   
-			<th>@*@Html.DisplayNameFor(model => model.Atores.FirstOrDefault().Sexo)*@</th>
-
+            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Sexo)</th>
+            *@
 
 		</tr>
-		@foreach (var ator in Model.Atores)
+		@foreach (var ator in Model.ListaAtores)
 		{
 		<tr>
 			<td>
 				@Html.DisplayFor(modelItem => ator.Personagem)
 			</td>
             <td>
-                @*@ator.Nome*@
+               
+                @ator.Atores.Nome
             </td>
             <td>
-                @*@ator.Nacionalidade*@
-            </td>
-            <td>
-                @*@ator.Sexo*@
+                @ator.Atores.Nacionalidade
             </td>
 		</tr>
 		}

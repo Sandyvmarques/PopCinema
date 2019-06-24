@@ -13,9 +13,9 @@ namespace PopCinema.Models
         {
             ListaFilmes = new HashSet<Filmes>();
         }
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //anotador que enibe a hipótese do ID ser auto number
         [Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		//anotador que enibe a hipótese do ID ser auto number
 		public int ID { get; set; }
 
 
