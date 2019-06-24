@@ -9,6 +9,10 @@ namespace PopCinema.Models
 {
 	public class Utilizadores
 	{
+
+        public Utilizadores() {
+            ListaClassificacoes = new HashSet<FilmesUtilizadores>();
+        }
 		[Key]
 		public int ID { get; set; }
 
@@ -29,6 +33,6 @@ namespace PopCinema.Models
 		public string Foto { get; set; }
 		//Relacoes M-N
 		// 1 Utilizador classifica n Filmes
-		public virtual ICollection<Filmes> Filmes { get; set; }
+		public virtual ICollection<FilmesUtilizadores> ListaClassificacoes { get; set; }
 	}
 }

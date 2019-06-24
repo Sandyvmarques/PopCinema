@@ -9,9 +9,13 @@ namespace PopCinema.Models
 {
 	public class Categorias
 	{
-		[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		//anotador que enibe a hipótese do ID ser auto number
+        public Categorias()
+        {
+            ListaFilmes = new HashSet<Filmes>();
+        }
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //anotador que enibe a hipótese do ID ser auto number
+        [Key]
 		public int ID { get; set; }
 
 
@@ -21,6 +25,6 @@ namespace PopCinema.Models
 		public string Nome { get; set; }
 		//Relacao M-N
 		// 1 Categoria pertence a n Filmes
-		public virtual ICollection<Filmes> Filmes { get; set; }
+		public virtual ICollection<Filmes> ListaFilmes { get; set; }
 	}
 }
