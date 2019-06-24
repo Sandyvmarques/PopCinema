@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace IdentitySample
+namespace PopCinema
 {
     public partial class Startup
     {

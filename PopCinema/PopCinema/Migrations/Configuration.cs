@@ -7,7 +7,7 @@
 	using System.Data.Entity.Migrations;
 	using System.Linq;
 
-	internal sealed class Configuration : DbMigrationsConfiguration<PopCinema.Models.PopCinemaDB>
+	internal sealed class Configuration : DbMigrationsConfiguration<PopCinema.Models.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -17,7 +17,7 @@
 
         }
 
-        protected override void Seed(PopCinema.Models.PopCinemaDB context)
+        protected override void Seed(PopCinema.Models.ApplicationDbContext context)
         {
             
                 //*********************************************************************

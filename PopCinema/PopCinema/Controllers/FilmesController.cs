@@ -13,7 +13,7 @@ namespace PopCinema.Controllers
 {
     public class FilmesController : Controller
     {
-        private PopCinemaDB db = new PopCinemaDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Filmes
         public ActionResult Index()

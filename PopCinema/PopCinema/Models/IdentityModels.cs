@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace IdentitySample.Models
+namespace PopCinema.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -21,7 +22,7 @@ namespace IdentitySample.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("PopCinemaConnectionString", throwIfV1Schema: false)
         {
         }
 
@@ -35,6 +36,23 @@ namespace IdentitySample.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        // vamos colocar, aqui, as instruções relativas às tabelas do 'negócio'
+        // descrever os nomes das tabelas na Base de Dados
+        public virtual DbSet<Atores> Atores { get; set; } // tabela Atores
+        public virtual DbSet<Filmes> Filmes { get; set; } // tabela Filmes
+        public virtual DbSet<Categorias> Categorias { get; set; } // tabela Categorias
+        public virtual DbSet<Utilizadores> Utilizadores { get; set; } // tabela Utilizadores
+        public virtual DbSet<FilmesAtores> FilmesAtores { get; set; } // tabela de relação Filmes-Atores (Personagem)
+        public virtual DbSet<FilmesUtilizadores> FilmesUtilizadores { get; set; } // tabela de relação Filmes-Utilizadores (Classificação)
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
