@@ -8,30 +8,28 @@
 <h2> @Html.DisplayNameFor(model => model.Titulo)</h2>
 
 <div>
-	<h4>Filmes</h4>
-	<hr />
+    <h4>Filmes</h4>
+    <hr />
     <dl class="dl-horizontal">
         @* <dt>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
 
 
-        <dd>
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>*@
+            <dd>
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>*@
         <dt>
-          
-        </dt>
 
-        
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Capa)
             <img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Ano)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Ano)
         </dd>
@@ -39,7 +37,6 @@
         <dt>
             @Html.DisplayNameFor(model => model.Sinopse)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Sinopse)
         </dd>
@@ -47,11 +44,10 @@
         <dt>
             @Html.DisplayNameFor(model => model.Trailer)
         </dt>
-
         <dd>
             <iframe width="560"
                     height="315"
-                    src="@Html.DisplayNameFor(model => model.Trailer)"
+                    src="@Model.Trailer"
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
@@ -59,13 +55,8 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.ListaCategorias)
-
-
-            }
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.ListaCategorias)
             @foreach (var categoria in Model.ListaCategorias)
             {
                 <span>
@@ -77,43 +68,164 @@
 
     </dl>
 
-	<hr />
+    <hr />
 
-	<h4>Lista de Atores</h4>
+    <h4>Lista de Atores</h4>
 
-	<table class="table">
+    <table class="table">
 
-		<tr>
+        <tr>
 
-			<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().ID)</th>
+            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().ID)</th>
 
-			@*<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nome)</th>
+            @*<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nome)</th>
 
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nacionalidade)  </th>
-  
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Sexo)</th>
+                <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Nacionalidade)  </th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Sexo)</th>
             *@
 
-		</tr>
-		@foreach (var ator in Model.ListaAtores)
-		{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => ator.Personagem)
-			</td>
-            <td>
-               
-                @ator.Atores.Nome
-            </td>
-            <td>
-                @ator.Atores.Nacionalidade
-            </td>
-		</tr>
-		}
-	</table>
-	<hr />
+        </tr>
+        @foreach (var ator in Model.ListaAtores)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => ator.Personagem)
+                </td>
+                <td>
+
+                    @ator.Ator.Nome
+                </td>
+                <td>
+                    @ator.Ator.Nacionalidade
+                </td>
+            </tr>
+        }
+    </table>
+    <hr />
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Model.Capa |
+    @Html.DisplayNameFor(model => model.Ano);
+
+
+#line default
+#line hidden
+
+#line 7 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayFor(model => model.Ano);
+
+
+#line default
+#line hidden
+
+#line 8 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayNameFor(model => model.Sinopse);
+
+
+#line default
+#line hidden
+
+#line 9 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayFor(model => model.Sinopse);
+
+
+#line default
+#line hidden
+
+#line 10 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayNameFor(model => model.Trailer);
+
+
+#line default
+#line hidden
+
+#line 11 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Model.Trailer;
+
+
+#line default
+#line hidden
+
+#line 12 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayNameFor(model => model.ListaCategorias);
+
+
+#line default
+#line hidden
+
+#line 13 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    foreach (var categoria in Model.ListaCategorias)
+    {
+
+
+#line default
+#line hidden
+
+#line 14 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+        __o = Html.DisplayFor(c => categoria.Nome);
+
+
+#line default
+#line hidden
+
+#line 15 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+
+    }
+
+#line default
+#line hidden
+
+#line 16 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().ID);
+
+
+#line default
+#line hidden
+
+#line 17 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    foreach (var ator in Model.ListaAtores)
+    {
+
+
+#line default
+#line hidden
+
+#line 18 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+        __o = Html.DisplayFor(modelItem => ator.Personagem);
+
+
+#line default
+#line hidden
+
+#line 19 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+        __o = ator.Ator.Nome;
+
+
+#line default
+#line hidden
+
+#line 20 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+        __o = ator.Ator.Nacionalidade;
+
+
+#line default
+#line hidden
+
+#line 21 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+
+    }
+
+#line default
+#line hidden
+
+#line 22 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.ActionLink("Edit", "Edit", new { id = Model.ID });
+
+
+#line default
+#line hidden
+
+#line 23 "C:\Users\rute paz\Source\Repos\PopCinema2\PopCinema\PopCinema\Views\Filmes\Details.cshtml"
+    __o = Html.ActionLink("Back to List", "Index")
 </p>

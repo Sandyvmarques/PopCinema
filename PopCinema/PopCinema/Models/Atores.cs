@@ -13,6 +13,7 @@ namespace PopCinema.Models
         public Atores() {
             ListaPersonagens = new HashSet<FilmesAtores>();
         }
+
 		[Key]
 		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int ID { get; set; }

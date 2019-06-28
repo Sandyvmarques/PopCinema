@@ -14,13 +14,13 @@ namespace PopCinema.Models
         public int ID { get; set; }
 
         //Foreign Keys
-        [ForeignKey("Filmes")]
-        public int FilmesFK { get; set; }
-        public virtual Filmes Filmes { get; set; }
+        [ForeignKey("Filme")]
+        public int FilmeFK { get; set; }
+        public virtual Filmes Filme { get; set; }
 
-        [ForeignKey("Atores")]
-        public int AtoresFK { get; set; }
-        public virtual Atores Atores { get; set; }
+        [ForeignKey("Ator")]
+        public int AtorFK { get; set; }
+        public virtual Atores Ator { get; set; }
 
         //atributos 
         [Required(ErrorMessage = "{0} required field! ")]

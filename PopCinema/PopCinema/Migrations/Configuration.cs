@@ -23,18 +23,18 @@
                 //*********************************************************************
                 // adiciona Filmes
                 var filmes = new List<Filmes> {
-            new Filmes {ID=0, Titulo="Avengers:Endgame",Ano=2019, Sinopse="After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe." ,   Capa="AvengersEndgame.jpg",Trailer="https://www.youtube.com/embed/TcMBFSGVi1c"},
-            new Filmes {ID=1, Titulo="Captain Marvel",   Ano=2019, Sinopse="Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races." , Capa="CaptainMarvel.jpg",  Trailer="https://www.youtube.com/embed/Z1BCujX3pw8"},
-            new Filmes {ID=2, Titulo="Glass ",           Ano=2019, Sinopse="Security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities." ,Capa="Glass.jpg",          Trailer="https://www.youtube.com/embed/95ghQs5AmNk"},
-            new Filmes {ID=3, Titulo="Shazam",           Ano=2019, Sinopse="We all have a superhero inside us, it just takes a bit of magic to bring it out. In Billy Batson's case, by shouting out one word - SHAZAM. - this streetwise fourteen-year-old foster kid can turn into the grown-up superhero Shazam." , Capa="Shazam.jpg",          Trailer="https://www.youtube.com/embed/go6GEIrcvFY"},
-            new Filmes {ID=4, Titulo="Hellboy",         Ano=2019, Sinopse="Based on the graphic novels by Mike Mignola, Hellboy, caught between the worlds of the supernatural and human, battles an ancient sorceress bent on revenge." ,  Capa="Hellboy.jpg",         Trailer="https://www.youtube.com/embed/JKwEXCgROtc"},
-            new Filmes {ID=5, Titulo="Aquaman",         Ano=2018, Sinopse="Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land." ,     Capa="Aquaman.jpg",         Trailer="https://www.youtube.com/embed/WDkg3h8PCVU"},
-            new Filmes {ID=6, Titulo="Escape Room",     Ano=2019, Sinopse="Six strangers find themselves in a maze of deadly mystery rooms and must use their wits to survive." ,   Capa="EscapeRoom.jpg",     Trailer="https://www.youtube.com/embed/6dSKUoV0SNI"},
-            new Filmes {ID=7, Titulo="Greta",           Ano=2019, Sinopse="A young woman befriends a lonely widow who's harboring a dark and deadly agenda toward her.",Capa="Greta.jpg",           Trailer="GretaVID"},
-            new Filmes {ID=8, Titulo="The Hustle",      Ano=2019, Sinopse="Anne Hathaway and Rebel Wilson star as female scam artists, one low rent and the other high class, who team up to take down the men who have wronged them." ,  Capa="TheHustle.jpg",      Trailer="https://www.youtube.com/embed/_j5hwooOHVE"},
-            new Filmes {ID=9,Titulo="The Favourite",   Ano=2018, Sinopse="In early 18th century England, a frail Queen Anne occupies the throne and her close friend, Lady Sarah, governs the country in her stead. When a new servant, Abigail, arrives, her charm endears her to Sarah." ,     Capa="TheFavourite.jpg",   Trailer="https://www.youtube.com/embed/SYb-wkehT1g"},
-        };                                                                                                                                                                                                                                                                                                                           
-            filmes.ForEach(aa => context.Filmes.AddOrUpdate(a => a.ID, aa));
+                    new Filmes {ID=0, Titulo="Avengers:Endgame",Ano=2019, Sinopse="After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe." ,   Capa="AvengersEndgame.jpg",Trailer="https://www.youtube.com/embed/TcMBFSGVi1c"},
+                    new Filmes {ID=1, Titulo="Captain Marvel",   Ano=2019, Sinopse="Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races." , Capa="CaptainMarvel.jpg",  Trailer="https://www.youtube.com/embed/Z1BCujX3pw8"},
+                    new Filmes {ID=2, Titulo="Glass ",           Ano=2019, Sinopse="Security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities." ,Capa="Glass.jpg",          Trailer="https://www.youtube.com/embed/95ghQs5AmNk"},
+                    new Filmes {ID=3, Titulo="Shazam",           Ano=2019, Sinopse="We all have a superhero inside us, it just takes a bit of magic to bring it out. In Billy Batson's case, by shouting out one word - SHAZAM. - this streetwise fourteen-year-old foster kid can turn into the grown-up superhero Shazam." , Capa="Shazam.jpg",          Trailer="https://www.youtube.com/embed/go6GEIrcvFY"},
+                    new Filmes {ID=4, Titulo="Hellboy",         Ano=2019, Sinopse="Based on the graphic novels by Mike Mignola, Hellboy, caught between the worlds of the supernatural and human, battles an ancient sorceress bent on revenge." ,  Capa="Hellboy.jpg",         Trailer="https://www.youtube.com/embed/JKwEXCgROtc"},
+                    new Filmes {ID=5, Titulo="Aquaman",         Ano=2018, Sinopse="Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land." ,     Capa="Aquaman.jpg",         Trailer="https://www.youtube.com/embed/WDkg3h8PCVU"},
+                    new Filmes {ID=6, Titulo="Escape Room",     Ano=2019, Sinopse="Six strangers find themselves in a maze of deadly mystery rooms and must use their wits to survive." ,   Capa="EscapeRoom.jpg",     Trailer="https://www.youtube.com/embed/6dSKUoV0SNI"},
+                    new Filmes {ID=7, Titulo="Greta",           Ano=2019, Sinopse="A young woman befriends a lonely widow who's harboring a dark and deadly agenda toward her.",Capa="Greta.jpg",           Trailer="GretaVID"},
+                    new Filmes {ID=8, Titulo="The Hustle",      Ano=2019, Sinopse="Anne Hathaway and Rebel Wilson star as female scam artists, one low rent and the other high class, who team up to take down the men who have wronged them." ,  Capa="TheHustle.jpg",      Trailer="https://www.youtube.com/embed/_j5hwooOHVE"},
+                    new Filmes {ID=9,Titulo="The Favourite",   Ano=2018, Sinopse="In early 18th century England, a frail Queen Anne occupies the throne and her close friend, Lady Sarah, governs the country in her stead. When a new servant, Abigail, arrives, her charm endears her to Sarah." ,     Capa="TheFavourite.jpg",   Trailer="https://www.youtube.com/embed/SYb-wkehT1g"},
+                };                                                                                                                                                                                                                                                                                                                           
+                filmes.ForEach(aa => context.Filmes.AddOrUpdate(a => a.ID, aa));
                 context.SaveChanges();
 
 
@@ -159,10 +159,10 @@
 
                 var filmesAtores = new List<FilmesAtores>
                    {
-               new FilmesAtores {AtoresFK=0, FilmesFK=0, Personagem="Captain America"},
-               new FilmesAtores {AtoresFK=1, FilmesFK=0, Personagem="Thor"},
-               new FilmesAtores {AtoresFK=2, FilmesFK=0, Personagem="Nick Furry"},
-               new FilmesAtores {AtoresFK=3, FilmesFK=1, Personagem="Captain Marvel"},
+               new FilmesAtores { Ator=atores[0],Filme=filmes[0], Personagem="Captain America"},
+               //new FilmesAtores {AtorFK=1, FilmeFK=0, Personagem="Thor"},
+               //new FilmesAtores {AtorFK=2, FilmeFK=0, Personagem="Nick Furry"},
+               //new FilmesAtores {AtorFK=3, FilmeFK=1, Personagem="Captain Marvel"},
                  };
            /* filmesAtores.ForEach(fa => context.FilmesAtores.AddOrUpdate(p => p.ID, fa));
             context.SaveChanges();*/
