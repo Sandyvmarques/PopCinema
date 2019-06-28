@@ -35,11 +35,13 @@ namespace PopCinema.Models
 
 		public string Trailer { get; set; }
 
-		//Relacoes M-N
-		// 1 filme tem n Categorias
-		public virtual ICollection<Categorias> ListaCategorias { get; set; }
-		// 1 filme tem n Atores
-		public virtual ICollection<FilmesAtores> ListaAtores { get; set; }
+        //Relacoes M-N
+        // 1 filme tem n Categorias
+        [Display(Name = "Categories")]
+        public virtual ICollection<Categorias> ListaCategorias { get; set; }
+        // 1 filme tem n Atores
+        [Display(Name = "Cast")]
+        public virtual ICollection<FilmesAtores> ListaAtores { get; set; }
         // 1 filme tem n Utilizadores
         public virtual ICollection<FilmesUtilizadores> ListaClassificacao { get; set; }
     }
