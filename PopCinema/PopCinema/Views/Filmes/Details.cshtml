@@ -22,7 +22,7 @@
            
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Capa)
+            @*@Html.DisplayFor(model => model.Capa)*@
             <img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
         </dd>
 
@@ -79,6 +79,8 @@
 
             <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nome)</th>
 
+            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.FotoAtor)</th>
+
             <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nacionalidade)  </th>
 
 
@@ -87,18 +89,21 @@
         </tr>
         @foreach (var ator in Model.ListaAtores)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => ator.Personagem)
-                </td>
-                <td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => ator.Personagem)
+            </td>
+            <td>
 
-                    @ator.Ator.Nome
-                </td>
-                <td>
-                    @ator.Ator.Nacionalidade
-                </td>
-            </tr>
+                @ator.Ator.Nome
+            </td>
+            <td>
+                <img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
+            </td>
+            <td>
+                @ator.Ator.Nacionalidade
+            </td>
+        </tr>
         }
     </table>
     <hr />
