@@ -15,14 +15,10 @@ namespace PopCinema.Models
         }
 
 		[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int ID { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		//[RegularExpression("[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+" +
-		//					"(( |'|-| e | da | dos | de | d')" +
-		//					"[A-ZÍÉÂÁ][a-záéíóúàèìòùâêîôûãõçëüïäö]+){1,3}",
-		//					ErrorMessage = "The {0} can only contain leters and spaces.Ex: Louis Lane")]
+	
 		public string Nome { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
@@ -43,11 +39,7 @@ namespace PopCinema.Models
 		//Relacao M-N
 		// 1 Ator participa em n Filmes
 		public virtual ICollection<FilmesAtores> ListaPersonagens { get; set; }
-       
-        /*// FK para o Filme
-        [ForeignKey("Filmes")]
-        public int FilmeFK { get; set; }
-        public virtual Filmes Filmes { get; set; } */
+
 
     }
 }

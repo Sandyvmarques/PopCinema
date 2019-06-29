@@ -37,15 +37,15 @@ namespace PopCinema.Controllers
                 return RedirectToAction("Index");
             }
 
-            Filmes filmes = db.Filmes.Find(id);
-            if (filmes == null)
+            Filmes filme = db.Filmes.Find(id);
+            if (filme == null)
             {
                 //o filme não foi encontrado (não existe)
                 return RedirectToAction("Index");
             }
 
             //enviar para a View os dados do Filme que foi procurado e encontrado
-            return View(filmes);
+            return View(filme);
         }
 
         // GET: Filmes/Create
@@ -114,12 +114,12 @@ namespace PopCinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filmes filmes = db.Filmes.Find(id);
-            if (filmes == null)
+            Filmes filme = db.Filmes.Find(id);
+            if (filme == null)
             {
                 return HttpNotFound();
             }
-            return View(filmes);
+            return View(filme);
         }
 
         // POST: Filmes/Edit/5
@@ -127,15 +127,15 @@ namespace PopCinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filmes)
+        public ActionResult Edit([Bind(Include = "ID,Titulo,Ano,Sinopse,Capa,Trailer")] Filmes filme)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(filmes).State = EntityState.Modified;
+                db.Entry(filme).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(filmes);
+            return View(filme);
         }
 
         // GET: Filmes/Delete/5
@@ -145,12 +145,12 @@ namespace PopCinema.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filmes filmes = db.Filmes.Find(id);
-            if (filmes == null)
+            Filmes filme = db.Filmes.Find(id);
+            if (filme == null)
             {
                 return HttpNotFound();
             }
-            return View(filmes);
+            return View(filme);
         }
 
         // POST: Filmes/Delete/5
@@ -158,8 +158,8 @@ namespace PopCinema.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Filmes filmes = db.Filmes.Find(id);
-            db.Filmes.Remove(filmes);
+            Filmes filme = db.Filmes.Find(id);
+            db.Filmes.Remove(filme);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
