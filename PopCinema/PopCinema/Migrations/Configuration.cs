@@ -66,7 +66,7 @@
                 utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
                 context.SaveChanges();
 
-            var storeR = new RoleStore<IdentityRoles>(context);
+           /* var storeR = new RoleStore<IdentityRoles>(context);
             var managerR = new RoleManager<IdentityRoles>(storeR);
 
             if (!managerR.Roles.Any(r => r.Name == "Admin")) {
@@ -122,7 +122,7 @@
 
             }
 
-
+    */
 
 
 
