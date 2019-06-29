@@ -58,17 +58,80 @@
                 //*********************************************************************
                 // adiciona Utilizadores
                 var utilizadores = new List<Utilizadores> {
-				   new Utilizadores {Nome="Tania Vieira",    Username="  TaniaVieira123",    DataNascimento="13/06/1981",		Email="  TaniaVieira@hotmail.com",   Foto="  TaniaVieira.jpg"},
-				   new Utilizadores {Nome="Antonio Rocha",   Username="  AntonioRocha123",   DataNascimento="30/06/1998" ,      Email="  AntonioRocha@hotmail.com",  Foto="  AntonioRocha.jpg"},
-				   new Utilizadores {Nome="Andre Silveira",  Username="  AndreSilveira123",  DataNascimento="21/12/1948",		Email="  AndreSilveira@hotmail.com", Foto="  AndreSilveira.jpg"},
-				   new Utilizadores {Nome="Lurdes Vieira",   Username="  LurdesVieira123",   DataNascimento="30/06/1998" ,      Email="  LurdesVieira@hotmail.com",  Foto="  LurdesVieira.jpg"},
+				   new Utilizadores {Nome="Tania Vieira",    Username="  TaniaVieira123",    DataNascimento=new DateTime(1995,7,2),		  Email="  TaniaVieira@hotmail.com",   Foto="  TaniaVieira.jpg"},
+				   new Utilizadores {Nome="Antonio Rocha",   Username="  AntonioRocha123",   DataNascimento=new DateTime(1995,7,2) ,      Email="  AntonioRocha@hotmail.com",  Foto="  AntonioRocha.jpg"},
+				   new Utilizadores {Nome="Andre Silveira",  Username="  AndreSilveira123",  DataNascimento=new DateTime(1995,7,2),		  Email="  AndreSilveira@hotmail.com", Foto="  AndreSilveira.jpg"},
+				   new Utilizadores {Nome="Lurdes Vieira",   Username="  LurdesVieira123",   DataNascimento=new DateTime(1995,7,2) ,      Email="  LurdesVieira@hotmail.com",  Foto="  LurdesVieira.jpg"},
 				};
                 utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
                 context.SaveChanges();
 
-                //*********************************************************************
-                // adiciona Atores
-                var atores = new List<Atores> {
+            var storeR = new RoleStore<IdentityRoles>(context);
+            var managerR = new RoleManager<IdentityRoles>(storeR);
+
+            if (!managerR.Roles.Any(r => r.Name == "Admin")) {
+
+                var role = new IdentityRole { Name = "Admin" };
+
+                managerR.Create(role);
+
+            }
+
+            if (!managerR.Roles.Any(r.Name == "Viewer")) {
+
+                var role = new IdentityRole { Name = "Viewr" };
+
+                managerR.Create(role);
+            }
+
+            /////////////////////////// USERS ///////////////////////////////////
+            ///
+            var store = new UseStore<ApplicationUser>(context);
+            var manager = new UserManager<ApplicationUser>(store);
+
+            /////////////////////////// ADMIN ///////////////////////////////////
+            ///
+            var us = utilizadores[0]; //Primeiro utilizador do seed da tabela de Users 
+            if (!context.Utilizadores.Any(u => u.UserName == us.Email)) {
+
+                var u = new ApplicationUser
+                {
+
+                    UserName = us.Email,
+                    Email = us.Email
+                };
+
+                manager.Create(u, "123Querty#"); //Palavra passe do admin
+                manager.AddToRole(u.Id, "Admin");
+
+            }
+
+            //Os restantes users são views da aplicação web 
+            for (int i = 1; i < utilizadores.Count(); i++) {
+                var us2 = utilizadores[i];
+                if (!context.Utilizadores.Any(u => u.UserName == us2.Email)) {
+                    var u = new ApplicationUser
+                    {
+                        UserName = us2.Email,
+                        Email = us2.Email
+                    };
+
+                    manager.Create(u, "123Querty#");
+                    manager.AddToRole(u.Id, "Viewer");
+                }
+
+            }
+
+
+
+
+
+
+
+
+            //*********************************************************************
+            // adiciona Atores
+            var atores = new List<Atores> {
 					new Atores {ID=0,
 								Nome ="Chris Evans",
 								Biografia ="Christopher Robert Evans is an American actor. Evans is known for his superhero roles as the Marvel Comics characters Captain America in the Marvel Cinematic Universe and Human Torch in Fantastic Four (2005) and its 2007 sequel.",

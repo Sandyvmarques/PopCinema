@@ -25,7 +25,8 @@ namespace PopCinema.Models
 		[Required(ErrorMessage = "The {0} is required.")]
 		public string Username { get; set; }
 
-		public string DataNascimento { get; set; }
+        [DataType(DataType.Data)]
+        public DateTime DataNascimento { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
 		public string Email { get; set; }
