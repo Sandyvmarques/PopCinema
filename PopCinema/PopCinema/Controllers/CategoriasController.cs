@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,113 +10,107 @@ using PopCinema.Models;
 
 namespace PopCinema.Controllers
 {
-    public class AtoresController : Controller
+    public class CategoriasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Atores
+        // GET: Categorias
         public ActionResult Index()
         {
-            return View(db.Atores.ToList());
+            return View(db.Categorias.ToList());
         }
 
-        // GET: Atores/Details/5
+        // GET: Categorias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atores ator = db.Atores.Find(id);
-            if (ator == null)
+            Categorias categorias = db.Categorias.Find(id);
+            if (categorias == null)
             {
-                TempData["Error"] = "Unexpected error";
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            return View(ator);
+            return View(categorias);
         }
 
-        // GET: Atores/Create
+        // GET: Categorias/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Atores/Create
+        // POST: Categorias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Biografia,Sexo,Nacionalidade,DataNascimento,FotoAtor")] Atores ator)
+        public ActionResult Create([Bind(Include = "ID,Nome")] Categorias categorias)
         {
             if (ModelState.IsValid)
             {
-                db.Atores.Add(ator);
+                db.Categorias.Add(categorias);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(ator);
+            return View(categorias);
         }
 
-        // GET: Atores/Edit/5
+        // GET: Categorias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
-                //cria mensagem de erro
-                TempData["Error"] = "Unexpected error";
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atores ator = db.Atores.Find(id);
-            if (ator == null)
+            Categorias categorias = db.Categorias.Find(id);
+            if (categorias == null)
             {
-                TempData["Error"] = "Unexpected error";
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            return View(ator);
+            return View(categorias);
         }
 
-        // POST: Atores/Edit/5
+        // POST: Categorias/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Biografia,Sexo,Nacionalidade,DataNascimento,FotoAtor")] Atores ator)
+        public ActionResult Edit([Bind(Include = "ID,Nome")] Categorias categorias)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ator).State = EntityState.Modified;
+                db.Entry(categorias).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ator);
+            return View(categorias);
         }
 
-        // GET: Atores/Delete/5
+        // GET: Categorias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
-                TempData["Error"] = "Unexpected error";
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Atores ator = db.Atores.Find(id);
-            if (ator == null)
+            Categorias categorias = db.Categorias.Find(id);
+            if (categorias == null)
             {
-                TempData["Error"] = "Unexpected error";
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            return View(ator);
+            return View(categorias);
         }
 
-        // POST: Atores/Delete/5
+        // POST: Categorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Atores ator = db.Atores.Find(id);
-            db.Atores.Remove(ator);
+            Categorias categorias = db.Categorias.Find(id);
+            db.Categorias.Remove(categorias);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

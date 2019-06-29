@@ -184,7 +184,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtoresController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\FilmesAtoresController.cs" />
     <Compile Include="Controllers\FilmesController.cs" />
+    <Compile Include="Controllers\FilmesUtilizadoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
@@ -319,6 +322,21 @@
     <Content Include="Views\Atores\Details.cshtml" />
     <Content Include="Views\Atores\Edit.cshtml" />
     <Content Include="Views\Atores\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\FilmesAtores\Create.cshtml" />
+    <Content Include="Views\FilmesAtores\Delete.cshtml" />
+    <Content Include="Views\FilmesAtores\Details.cshtml" />
+    <Content Include="Views\FilmesAtores\Edit.cshtml" />
+    <Content Include="Views\FilmesAtores\Index.cshtml" />
+    <Content Include="Views\FilmesUtilizadores\Create.cshtml" />
+    <Content Include="Views\FilmesUtilizadores\Delete.cshtml" />
+    <Content Include="Views\FilmesUtilizadores\Details.cshtml" />
+    <Content Include="Views\FilmesUtilizadores\Edit.cshtml" />
+    <Content Include="Views\FilmesUtilizadores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

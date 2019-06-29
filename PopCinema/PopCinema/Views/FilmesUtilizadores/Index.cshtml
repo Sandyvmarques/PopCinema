@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PopCinema.Models.FilmesUtilizadores>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Filme.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classificacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Filme.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classificacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdClassificacao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdClassificacao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdClassificacao })
+        </td>
+    </tr>
+}
+
+</table>
