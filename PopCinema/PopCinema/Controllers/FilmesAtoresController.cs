@@ -37,6 +37,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: FilmesAtores/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.AtorFK = new SelectList(db.Atores, "ID", "Nome");
@@ -64,6 +65,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: FilmesAtores/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +101,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: FilmesAtores/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

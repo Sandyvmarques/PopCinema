@@ -58,12 +58,12 @@
                 //*********************************************************************
                 // adiciona Utilizadores
                 var utilizadores = new List<Utilizadores> {
-				   new Utilizadores {Nome="Tania Vieira",    Username="  TaniaVieira123",    DataNascimento=new DateTime(1995,7,2),		  Email="  TaniaVieira@hotmail.com",   Foto="  TaniaVieira.jpg"},
-				   new Utilizadores {Nome="Antonio Rocha",   Username="  AntonioRocha123",   DataNascimento=new DateTime(1995,7,2) ,      Email="  AntonioRocha@hotmail.com",  Foto="  AntonioRocha.jpg"},
-				   new Utilizadores {Nome="Andre Silveira",  Username="  AndreSilveira123",  DataNascimento=new DateTime(1995,7,2),		  Email="  AndreSilveira@hotmail.com", Foto="  AndreSilveira.jpg"},
-				   new Utilizadores {Nome="Lurdes Vieira",   Username="  LurdesVieira123",   DataNascimento=new DateTime(1995,7,2) ,      Email="  LurdesVieira@hotmail.com",  Foto="  LurdesVieira.jpg"},
+				   new Utilizadores {Nome="Administrator",      Username="  admin",             DataNascimento=new DateTime(1995,7,2),		    Email="  admin@mail.pt"},
+				   new Utilizadores {Nome="Utilizador1",        Username="  util1",             DataNascimento=new DateTime(1995,7,2) ,         Email="  util1@mail.pt"},
+				   new Utilizadores {Nome="Utilizador2",        Username="  util2",             DataNascimento=new DateTime(1995,7,2),		    Email="  util2@mail.pt"},
+				   new Utilizadores {Nome="Utilizador3",        Username="  util3",             DataNascimento=new DateTime(1995,7,2) ,         Email="   util3@mail.pt"},
 				};
-                utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
+                utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.ID, aa));
                 context.SaveChanges();
 
            /* var storeR = new RoleStore<IdentityRoles>(context);

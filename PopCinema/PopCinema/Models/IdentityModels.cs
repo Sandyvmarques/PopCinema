@@ -46,6 +46,7 @@ namespace PopCinema.Models
         public virtual DbSet<Utilizadores> Utilizadores { get; set; } // tabela Utilizadores
         public virtual DbSet<FilmesAtores> FilmesAtores { get; set; } // tabela de relação Filmes-Atores (Personagem)
         public virtual DbSet<FilmesUtilizadores> FilmesUtilizadores { get; set; } // tabela de relação Filmes-Utilizadores (Classificação)
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

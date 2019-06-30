@@ -21,6 +21,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: Categorias/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +37,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: Categorias/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +61,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: Categorias/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +93,7 @@ namespace PopCinema.Controllers
         }
 
         // GET: Categorias/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
