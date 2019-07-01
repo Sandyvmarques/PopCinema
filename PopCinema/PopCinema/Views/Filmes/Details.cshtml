@@ -8,7 +8,7 @@
 <h2> @Model.Titulo</h2>
 <hr />
 
-<div >
+<div>
     <div style="width: 100%; overflow: hidden;display: flex;">
         <div style="width: 40px; float: left;">
             @*@Html.DisplayFor(model => model.Capa)*@
@@ -17,6 +17,7 @@
         </div>
         <div style="margin-left: 200px;">
             <dl class="dl-horizontal">
+
 
                 <dt>
                     @Html.DisplayNameFor(model => model.Ano)
@@ -38,11 +39,10 @@
                     @foreach (var categoria in Model.ListaCategorias)
                     {
                         <span>
-                            @Html.DisplayFor(c => categoria.Nome)<br />
+                            @Html.DisplayFor(c => categoria.Nome),
                         </span>
                     }
                 </dd>
-
                 <dt>
                     @Html.DisplayNameFor(model => model.Trailer)
                 </dt>
@@ -54,15 +54,11 @@
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                 </dd>
-
-
-
-
             </dl>
         </div>
     </div>
 
-    <div style="clear: both; width: inherit; height: auto; position: static; ">
+    <div style="clear: both; width: inherit; height: auto; position: static;">
 
         <h4>Cast</h4>
 
@@ -87,16 +83,50 @@
                         <a href="~/Atores/Details/@ator.Ator.ID">
                             @ator.Ator.Nome
                         </a>
-                        
+
                     </td>
                     <td>
                         <img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
                     </td>
-                 
+
                 </tr>
             }
         </table>
     </div>
     <hr />
-</div>
 
+    <div style="clear: both; width: inherit; height: auto; position: static;">
+
+        <h4>Comentários</h4>
+
+        <table class="table">
+
+            <tr>
+
+                <th>@Html.DisplayNameFor(model => model.ListaComentario.FirstOrDefault().Utilizador.Nome)</th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaComentario.FirstOrDefault().Comentario)</th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaComentario.FirstOrDefault().Data)</th>
+
+            </tr>
+            @foreach (var Comentario in Model.ListaComentario)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Comentario.Utilizador.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Comentario.Comentario)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Comentario.Data)
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+</div>

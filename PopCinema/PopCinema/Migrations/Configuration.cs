@@ -306,6 +306,18 @@
 			   filmesAtores.ForEach(fa => context.FilmesAtores.AddOrUpdate(p => p.ID, fa));
 				context.SaveChanges();
 
+            var filmesUtilizadores = new List<FilmesUtilizadores>
+                   {
+                    new FilmesUtilizadores {Utilizador = utilizadores[1], Filme =filmes[0], Comentario="Great movie!", Data =  DateTime.Now},
+                    
+                 };
+            filmesUtilizadores.ForEach(fa => context.FilmesUtilizadores.AddOrUpdate(p => p.ID, fa));
+            context.SaveChanges();
+
+
+
+
+
         }
 	}
 }

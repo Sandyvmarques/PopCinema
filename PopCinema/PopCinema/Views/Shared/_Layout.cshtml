@@ -27,8 +27,7 @@
 
                     <li>@Html.ActionLink("Atores", "Index", "Atores")</li>
                     <li>@Html.ActionLink("Filmes", "Index", "Filmes")</li>
-                    <li>@Html.ActionLink("About", "About", "Contact")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Contact")</li>
+                   
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -44,6 +43,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <p>Aplicação que tem como objetivo de mostrar toda a informação dos filmes apresentados</p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

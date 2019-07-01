@@ -50,7 +50,7 @@ namespace PopCinema.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdClassificacao,Classificacao,FilmeFK,UtilizadorFK")] FilmesUtilizadores filmesUtilizadores)
+        public ActionResult Create([Bind(Include = "IdComentario,Comentario,FilmeFK,UtilizadorFK")] FilmesUtilizadores filmesUtilizadores)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PopCinema.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdClassificacao,Classificacao,FilmeFK,UtilizadorFK")] FilmesUtilizadores filmesUtilizadores)
+        public ActionResult Edit([Bind(Include = "IdComentario,Comentario,FilmeFK,UtilizadorFK")] FilmesUtilizadores filmesUtilizadores)
         {
             if (ModelState.IsValid)
             {

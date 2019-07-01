@@ -10,10 +10,13 @@ namespace PopCinema.Models
     public class FilmesUtilizadores
     {
         [Key]
-        public int IdClassificacao { get; set; }
+        public int ID { get; set; }
 
-        [RegularExpression("[0-10]" )]
-        public double Classificacao { get; set; }
+        
+        public string Comentario { get; set; }
+
+
+        public DateTime Data { get; set; }
 
         [ForeignKey("Filme")]
         public int FilmeFK { get; set; }

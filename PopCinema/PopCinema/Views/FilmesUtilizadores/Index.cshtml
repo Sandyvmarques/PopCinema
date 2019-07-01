@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Utilizador.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Classificacao)
+            @Html.DisplayNameFor(model => model.Comentario)
         </th>
         <th></th>
     </tr>
@@ -32,12 +32,12 @@
             @Html.DisplayFor(modelItem => item.Utilizador.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Classificacao)
+            @Html.DisplayFor(modelItem => item.Comentario)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdClassificacao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdClassificacao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdClassificacao })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
