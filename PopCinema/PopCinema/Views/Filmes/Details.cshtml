@@ -5,100 +5,98 @@
 }
 
 @*para aparecer o nome do filme como titulo quando se ve os detalhes do mesmo*@
-<h2> @Html.DisplayNameFor(model => model.Titulo)</h2>
+<h2> @Model.Titulo</h2>
+<hr />
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-      
-        <dt>
-           
-        </dt>
-        <dd>
+<div >
+    <div style="width: 100%; overflow: hidden;display: flex;">
+        <div style="width: 40px; float: left;">
             @*@Html.DisplayFor(model => model.Capa)*@
             <img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
-        </dd>
+            <hr />
+        </div>
+        <div style="margin-left: 200px;">
+            <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ano)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ano)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ano)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Ano)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sinopse)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Sinopse)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sinopse)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Sinopse)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ListaCategorias)
+                </dt>
+                <dd>
+                    @foreach (var categoria in Model.ListaCategorias)
+                    {
+                        <span>
+                            @Html.DisplayFor(c => categoria.Nome)<br />
+                        </span>
+                    }
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Trailer)
-        </dt>
-        <dd>
-            <iframe width="560"
-                    height="315"
-                    src="@Model.Trailer"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Trailer)
+                </dt>
+                <dd>
+                    <iframe width="560"
+                            height="315"
+                            src="@Model.Trailer"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ListaCategorias)
-        </dt>
-        <dd>
-            @foreach (var categoria in Model.ListaCategorias)
+
+
+
+            </dl>
+        </div>
+    </div>
+
+    <div style="clear: both; width: inherit; height: auto; position: static; ">
+
+        <h4>Cast</h4>
+
+        <table class="table">
+
+            <tr>
+
+                <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Personagem)</th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nome)</th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.FotoAtor)</th>
+
+            </tr>
+            @foreach (var ator in Model.ListaAtores)
             {
-                <span>
-                    @Html.DisplayFor(c => categoria.Nome)<br />
-                </span>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => ator.Personagem)
+                    </td>
+                    <td>
+                        <a href="~/Atores/Details/@ator.Ator.ID">
+                            @ator.Ator.Nome
+                        </a>
+                        
+                    </td>
+                    <td>
+                        <img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
+                    </td>
+                 
+                </tr>
             }
-        </dd>
-
-
-    </dl>
-
-    <hr />
-
-    <h4>Cast</h4>
-
-    <table class="table">
-
-        <tr>
-
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Personagem)</th>
-
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nome)</th>
-
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.FotoAtor)</th>
-
-            <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nacionalidade)  </th>
-
-
-
-
-        </tr>
-        @foreach (var ator in Model.ListaAtores)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => ator.Personagem)
-            </td>
-            <td>
-
-                @ator.Ator.Nome
-            </td>
-            <td>
-                <img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
-            </td>
-            <td>
-                @ator.Ator.Nacionalidade
-            </td>
-        </tr>
-        }
-    </table>
+        </table>
+    </div>
     <hr />
 </div>
 

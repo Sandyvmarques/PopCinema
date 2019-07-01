@@ -82,6 +82,12 @@ namespace PopCinema.Models
         }
     }
 
+
+
+
+
+
+
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -99,6 +105,9 @@ namespace PopCinema.Models
             return Task.FromResult(0);
         }
     }
+
+
+
 
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>

@@ -151,7 +151,7 @@ namespace PopCinema.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Utilizador.Username, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -159,7 +159,7 @@ namespace PopCinema.Controllers
                     {
                         // registar os dados específicos do utilizador
                         Utilizadores utilizador = new Utilizadores();
-                        //utilizador = model.Utilizador;
+                        utilizador = model.Utilizador;
                         utilizador.Username = user.UserName;
                         ApplicationDbContext db = new ApplicationDbContext();
                         db.Utilizadores.Add(utilizador);

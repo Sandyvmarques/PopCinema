@@ -23,7 +23,8 @@ namespace PopCinema.Models
 		public int ID { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		public string Titulo { get; set; }
+        [Display(Name = "Filme")]
+        public string Titulo { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
 		public int Ano { get; set; }

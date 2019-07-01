@@ -12,54 +12,25 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ano)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sinopse)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trailer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capa)
-        </th>
-        <th></th>
-    </tr>
+    <div style=" display:flex; flex-wrap:wrap; flex-direction:row; justify-content:space-around; align-content:center; margin-top:30px;">
+        @foreach (var item in Model)
+        {
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ano)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sinopse)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Trailer)
-            </td>
-            <td>
+        <div style="padding-top: 15px">
+            <a href="~/Filmes/Details/@item.ID">
                 <img src="~/imagens/CapasFilmes/@item.Capa" height="250" />
-            </td>
-            <td>
-                @if (User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                    <span>|</span>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                }
-            </td>
-        </tr>
-    }
+                <figcaption style=" text-align: center">@item.Titulo</figcaption>
+            </a>
+           
+        </div>
+        }
 
-</table>
+    </div>
+
+
+
+
+
+
+
+   
