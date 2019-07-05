@@ -1,26 +1,28 @@
 ﻿@model IEnumerable<PopCinema.Models.Atores>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+@if (User.IsInRole("Admin"))
+{
+	<p>
+		@Html.ActionLink("Create New", "Create")
+	</p>
+}
 <div style=" display:flex; flex-wrap:wrap; flex-direction:row; justify-content:space-around; align-content:center; margin-top:30px;">
-    @foreach (var item in Model)
-    {
+	@foreach (var item in Model)
+	{
 
-        <div style="padding-top: 15px">
-            <a href="~/Atores/Details/@item.ID">
-                <img src="~/Imagens/FotoAtores/@item.FotoAtor" height="250" />
-                <figcaption style=" text-align: center">@item.Nome</figcaption>
-            </a>
+		<div style="padding-top: 15px">
+			<a href="~/Atores/Details/@item.ID">
+				<img src="~/Imagens/FotoAtores/@item.FotoAtor" height="250" />
+				<figcaption style=" text-align: center">@item.Nome</figcaption>
+			</a>
 
-        </div>
-    }
+		</div>
+	}
+
 
 </div>

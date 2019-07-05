@@ -49,9 +49,9 @@ namespace PopCinema.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -69,7 +69,14 @@ namespace PopCinema.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+		[Required]
+		[EmailAddress]
+		[Display(Name = "Username")]
+		public string Username { get; set; }
+
+
+
+		[Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

@@ -14,7 +14,7 @@ namespace PopCinema.Models
 
             ListaCategorias = new HashSet<Categorias>();
 
-            ListaClassificacao = new HashSet<FilmesUtilizadores>();
+			ListaComentarios = new HashSet<FilmesUtilizadores>();
 
         }
 
@@ -43,7 +43,8 @@ namespace PopCinema.Models
         // 1 filme tem n Atores
         [Display(Name = "Cast")]
         public virtual ICollection<FilmesAtores> ListaAtores { get; set; }
-        // 1 filme tem n Utilizadores
-        public virtual ICollection<FilmesUtilizadores> ListaClassificacao { get; set; }
+		// 1 filme tem n Utilizadores
+		[Display(Name = "Comments")]
+		public virtual ICollection<FilmesUtilizadores> ListaComentarios { get; set; }
     }
 }
