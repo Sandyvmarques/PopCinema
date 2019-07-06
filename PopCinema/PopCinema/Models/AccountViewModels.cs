@@ -48,8 +48,8 @@ namespace PopCinema.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Username")]
+		[Required]
+		[Display(Name = "Username")]
         [EmailAddress]
         public string Username { get; set; }
 
@@ -69,7 +69,7 @@ namespace PopCinema.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-		[Required]
+		
 		[EmailAddress]
 		[Display(Name = "Username")]
 		public string Username { get; set; }

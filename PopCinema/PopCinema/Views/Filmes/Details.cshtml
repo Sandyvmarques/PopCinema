@@ -98,7 +98,27 @@
 	<div style="clear: both; width: inherit; height: auto; position: static;">
 
 		<h4>Comentários</h4>
+		@if (!User.Identity.IsAuthenticated)
 
+		{
+
+			<div class="alert alert-info" style="margin-top:20px; margin-right:690px">
+
+				<strong>Nota:</strong> Para adicionar um comentário é necessário iniciar sessão!
+
+			</div>
+
+		}
+
+		@if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+
+		{
+
+
+			<p>
+				@Html.ActionLink("Create New", "Create","FilmesUtilizadores")
+			</p>
+		}
 		<table class="table">
 
 			<tr>
@@ -122,6 +142,15 @@
 					</td>
 					<td>
 						@Html.DisplayFor(modelItem => Comentario.Data)
+					</td>
+					<td>
+						@if (User.IsInRole("Admin"))
+						{
+
+							@Html.ActionLink("Edit", "Edit", "FilmesUtilizadores")
+							@Html.ActionLink("Delete", "Delete", "FilmesUtilizadores")
+
+						}
 					</td>
 
 				</tr>

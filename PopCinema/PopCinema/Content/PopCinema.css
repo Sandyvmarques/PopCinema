@@ -1,0 +1,107 @@
+﻿.logo {
+	width: 100%;
+	color: beige;
+	background-color: #000000;
+	text-align: center;
+	font-family: Arial;
+	font-size: 100px;
+	text-decoration: none;
+}
+
+
+
+	.logo:hover,
+	.logo:focus {
+		text-decoration: none;
+	}
+
+
+
+.texto {
+	font-family: Arial;
+	text-align: center;
+	color: #000000;
+	top: 280px;
+	padding: 1px;
+	opacity: 0.8;
+	background-color: #FFFFFF;
+	text-decoration: none;
+	position: sticky;
+	height: 65px;
+}
+
+
+
+	.texto h2 {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+
+
+.nome {
+	font-family: Arial;
+	text-align: left;
+	color: darkred;
+	font-size: 50px;
+	font-weight: bold;
+	margin-top: -130px;
+	margin-left: 150px;
+	width: 100%;
+}
+
+
+
+.sinopse {
+	font-family: Arial;
+	color: #000000;
+	font-size: 16px;
+	text-align: justify;
+}
+
+
+
+#main {
+	margin-top: 40px;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	display: flex;
+	align-items: center;
+}
+
+
+
+.realizador {
+	font-family: Arial;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+
+
+.sobre {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+
+/*Estilo do Index dos filmes*/
+
+.prim {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.seg {
+	width: 24%;
+	height: 413px;
+	overflow-y: hidden;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	min-width: 250px;
+}
