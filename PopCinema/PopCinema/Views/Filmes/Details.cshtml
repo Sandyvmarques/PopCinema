@@ -1,161 +1,171 @@
 ﻿@model PopCinema.Models.Filmes
 
 @{
-	ViewBag.Title = "Details";
+    ViewBag.Title = "Details";
 }
 
 @*para aparecer o nome do filme como titulo quando se ve os detalhes do mesmo*@
-<h2> @Model.Titulo</h2>
+<h2 style=" color:white; font-weight:400; text-align: center"> @Model.Titulo</h2>
 <hr />
-
-<div>
-	<div style="width: 100%; overflow: hidden;display: flex;">
-		<div style="width: 40px; float: left;">
-			@*@Html.DisplayFor(model => model.Capa)*@
-			<img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
-			<hr />
-		</div>
-		<div style="margin-left: 200px;">
-			<dl class="dl-horizontal">
-
-
-				<dt>
-					@Html.DisplayNameFor(model => model.Ano)
-				</dt>
-				<dd>
-					@Html.DisplayFor(model => model.Ano)
-				</dd>
-
-				<dt>
-					@Html.DisplayNameFor(model => model.Sinopse)
-				</dt>
-				<dd>
-					@Html.DisplayFor(model => model.Sinopse)
-				</dd>
-				<dt>
-					@Html.DisplayNameFor(model => model.ListaCategorias)
-				</dt>
-				<dd>
-					@foreach (var categoria in Model.ListaCategorias)
-					{
-						<span>
-							@Html.DisplayFor(c => categoria.Nome),
-						</span>
-					}
-				</dd>
-				<dt>
-					@Html.DisplayNameFor(model => model.Trailer)
-				</dt>
-				<dd>
-					<iframe width="560"
-							height="315"
-							src="@Model.Trailer"
-							frameborder="0"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-				</dd>
-			</dl>
-		</div>
-	</div>
-
-	<div style="clear: both; width: inherit; height: auto; position: static;">
-
-		<h4>Cast</h4>
-
-		<table class="table">
-
-			<tr>
-
-				<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Personagem)</th>
-
-				<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nome)</th>
-
-				<th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.FotoAtor)</th>
-
-			</tr>
-			@foreach (var ator in Model.ListaAtores)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => ator.Personagem)
-					</td>
-					<td>
-						<a href="~/Atores/Details/@ator.Ator.ID">
-							@ator.Ator.Nome
-						</a>
-
-					</td>
-					<td>
-						<img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
-					</td>
-
-				</tr>
-			}
-		</table>
-	</div>
-	<hr />
-
-	<div style="clear: both; width: inherit; height: auto; position: static;">
-
-		<h4>Comentários</h4>
-		@if (!User.Identity.IsAuthenticated)
-
-		{
-
-			<div class="alert alert-info" style="margin-top:20px; margin-right:690px">
-
-				<strong>Nota:</strong> Para adicionar um comentário é necessário iniciar sessão!
-
-			</div>
-
-		}
-
-		@if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
-
-		{
+@if (User.IsInRole("Admin"))
+{
+    <p  style="background-color:black; color:white">@Html.ActionLink("Edit Movie", "Edit", new { id = Model.ID })</p>
+    <p  style="background-color:black; color:white">@Html.ActionLink("Delete Movie", "Delete", new { id = Model.ID })</p>
+}
+    <div style="background-color:black; color:white">
+        <div style="width: 100%; overflow: hidden;display: flex;background-color:black ">
+            <div style="width: 40px; float: left;">
+                @*@Html.DisplayFor(model => model.Capa)*@
+                <img src="~/Imagens/CapasFilmes/@Model.Capa" height="400" />
+                <hr />
+            </div>
+            <div style="margin-left: 200px; background-color:black">
+                <dl class="dl-horizontal">
 
 
-			<p>
-				@Html.ActionLink("Create New", "Create","FilmesUtilizadores")
-			</p>
-		}
-		<table class="table">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ano)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Ano)
+                    </dd>
 
-			<tr>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Sinopse)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Sinopse)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ListaCategorias)
+                    </dt>
+                    <dd>
+                        @foreach (var categoria in Model.ListaCategorias)
+                        {
+                            <span>
+                                @Html.DisplayFor(c => categoria.Nome),
+                            </span>
+                        }
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Trailer)
+                    </dt>
+                    <dd>
+                        <iframe width="560"
+                                height="315"
+                                src="@Model.Trailer"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </dd>
+                </dl>
+            </div>
+        </div>
 
-				<th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Utilizador.Nome)</th>
+        <div style="clear: both; width: inherit; height: auto; position: static; background-color:black">
 
-				<th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Comentario)</th>
+            <h3 style="text-align:center">Cast</h3>
 
-				<th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Data)</th>
+            <table class="table">
 
-			</tr>
-			@foreach (var Comentario in Model.ListaComentarios)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => Comentario.Utilizador.Nome)
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => Comentario.Comentario)
+                <tr>
 
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => Comentario.Data)
-					</td>
-					<td>
-						@if (User.IsInRole("Admin"))
-						{
+                    <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Personagem)</th>
 
-							@Html.ActionLink("Edit", "Edit", "FilmesUtilizadores")
-							@Html.ActionLink("Delete", "Delete", "FilmesUtilizadores")
+                    <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.Nome)</th>
 
-						}
-					</td>
+                    <th>@Html.DisplayNameFor(model => model.ListaAtores.FirstOrDefault().Ator.FotoAtor)</th>
 
-				</tr>
-			}
-		</table>
-	</div>
+                </tr>
+                @foreach (var ator in Model.ListaAtores)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => ator.Personagem)
+                        </td>
+                        <td>
+                            <a href="~/Atores/Details/@ator.Ator.ID">
+                                @ator.Ator.Nome
+                            </a>
 
-</div>
+                        </td>
+                        <td>
+                            <img src="~/Imagens/FotoAtores/@ator.Ator.FotoAtor" height="200" />
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+        <hr />
+
+        <div style="clear: both; width: inherit; height: auto; position: static; background-color:black">
+
+            <h3 style="text-align:center">Comments</h3>
+            @if (!User.Identity.IsAuthenticated)
+
+            {
+            
+                <div class="alert alert-info" style="margin-top:20px; margin-right:800px; text-align:center">
+
+                    To add a comment, you need to register or login
+
+                </div>
+       
+
+            }
+
+            @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+
+            {
+
+
+                <p>
+                    @Html.ActionLink("Create New", "Create", "FilmesUtilizadores")
+                </p>
+            }
+            <table class="table" style="background-color:black">
+
+                @*<tr>
+
+                <th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Utilizador.Nome)</th>
+
+                <th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Comentario)</th>
+
+                @*<th>@Html.DisplayNameFor(model => model.ListaComentarios.FirstOrDefault().Data)</th>
+
+                        </tr>*@
+                @foreach (var Comentario in Model.ListaComentarios)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Comentario.Utilizador.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Comentario.Comentario)
+
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => Comentario.Data)
+                        </td>*@
+                        <td>
+                            @if (User.IsInRole("Admin"))
+                            {
+
+                                @Html.ActionLink("Edit", "Edit", "FilmesUtilizadores")
+                                @Html.ActionLink("Delete", "Delete", "FilmesUtilizadores")
+
+                            }
+                        </td>
+
+                    </tr>
+                }
+            </table>
+
+
+        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <p>@Html.ActionLink("Delete Movie", "Delete")</p>
+        }
+    </div>

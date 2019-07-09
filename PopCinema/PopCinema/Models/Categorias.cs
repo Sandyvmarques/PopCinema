@@ -20,11 +20,11 @@ namespace PopCinema.Models
 
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		[RegularExpression("[A-Z][a-z]+( [A-Z][a-z]+)*",
-							ErrorMessage = "The {0} can only contain leters and spaces.Ex: Louis Lane")]
+		[RegularExpression("[A-Z][a-z]+( [A-Z][a-z]+)*")]
 		public string Nome { get; set; }
-		//Relacao M-N
-		// 1 Categoria pertence a n Filmes
-		public virtual ICollection<Filmes> ListaFilmes { get; set; }
+        //Relacao M-N
+        // 1 Categoria pertence a n Filmes
+        [Display(Name = "Movies")]
+        public virtual ICollection<Filmes> ListaFilmes { get; set; }
 	}
 }

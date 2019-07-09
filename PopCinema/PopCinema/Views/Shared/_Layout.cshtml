@@ -1,19 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Movies</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-
+    <style>
+        body {
+            background-image: url(../../Imagens/CapasFilmes/66707961_355523015133590_5889961585291558912_n.jpg);
+        }
+    </style>
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="color:white" >
+        <div class="container" style="color:white">
+            <div class="navbar-header" style="background-color:maroon; color:white">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -22,12 +27,13 @@
                 @Html.ActionLink("PopCinema", null,null,  new {@class = "navbar-brand" })
                
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="background-color:maroon; color:white">
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Atores", "Index", "Atores")</li>
-                    <li>@Html.ActionLink("Filmes", "Index", "Filmes")</li>
-                   
+                    <li>@Html.ActionLink("Actors", "Index", "Atores")</li>
+                    <li>@Html.ActionLink("Movies", "Index", "Filmes")</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Categorias")</li>
+
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -44,7 +50,7 @@
         <hr />
         <footer>
             <p>Aplicação que tem como objetivo de mostrar toda a informação dos filmes apresentados</p>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Movies</p>
         </footer>
     </div>
 

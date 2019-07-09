@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 style="color:white; font-weight:400; background-color:black">Create</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal" style="color:white; font-weight:400; background-color:black">
         <h4>FilmesUtilizadores</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -46,6 +46,6 @@
     </div>
 }
 
-<div>
+<div style="color:white; font-weight:400; background-color:black">
     @Html.ActionLink("Back to List", "Index")
 </div>

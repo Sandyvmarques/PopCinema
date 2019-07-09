@@ -4,9 +4,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
+@if (User.IsInRole("Admin"))
+{
+    <p style="color:white; font-weight:400; background-color:black">@Html.ActionLink("Edit Movie", "Edit", new { id = Model.ID })</p>
+    <p style="color:white; font-weight:400; background-color:black">@Html.ActionLink("Delete Movie", "Delete")</p>
+}
+<div style="color:white; font-weight:400; background-color:black">
     <h4>FilmesUtilizadores</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -36,7 +40,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdComentario }) |
+<p style="color:white; font-weight:400; background-color:black">
+
     @Html.ActionLink("Back to List", "Index")
 </p>

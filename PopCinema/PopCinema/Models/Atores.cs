@@ -18,10 +18,10 @@ namespace PopCinema.Models
 		public int ID { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-	
-		public string Nome { get; set; }
-
-		[Required(ErrorMessage = "The {0} is required.")]
+        [Display(Name = "Name")]
+        public string Nome { get; set; }
+        [Display(Name = "Biography")]
+        [Required(ErrorMessage = "The {0} is required.")]
 		public String Biografia { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
@@ -29,16 +29,17 @@ namespace PopCinema.Models
 
 		[Required(ErrorMessage = "The {0} is required.")]
 		public String Nacionalidade { get; set; }
-
-		[Required(ErrorMessage = "The {0} is required.")]
+        [Display(Name = "Date of Birth")]
+        [Required(ErrorMessage = "The {0} is required.")]
 		public string DataNascimento { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
 		public String FotoAtor { get; set; }
 
-		//Relacao M-N
-		// 1 Ator participa em n Filmes
-		public virtual ICollection<FilmesAtores> ListaPersonagens { get; set; }
+        //Relacao M-N
+        // 1 Ator participa em n Filmes
+        [Display(Name = "Character")]
+        public virtual ICollection<FilmesAtores> ListaPersonagens { get; set; }
 
 
     }

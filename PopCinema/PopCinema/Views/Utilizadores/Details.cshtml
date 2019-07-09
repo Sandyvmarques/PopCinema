@@ -3,56 +3,52 @@
 @{
     ViewBag.Title = "Details";
 }
+@if (User.IsInRole("Admin"))
+{
+    <h2  style="background-color:black; color:white">Details</h2>
 
-<h2>Details</h2>
+    <div  style="background-color:black; color:white">
+       
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
 
-<div>
-    <h4>Utilizadores</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascimento)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataNascimento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataNascimento)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+      
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p  style="background-color:black; color:white">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

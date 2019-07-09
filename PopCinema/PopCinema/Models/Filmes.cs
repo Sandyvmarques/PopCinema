@@ -23,14 +23,16 @@ namespace PopCinema.Models
 		public int ID { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-        [Display(Name = "Filme")]
+        [Display(Name = "Movie")]
         public string Titulo { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		public int Ano { get; set; }
+        [Display(Name = "Year")]
+        public int Ano { get; set; }
 
 		[Required(ErrorMessage = "The {0} is required.")]
-		public string Sinopse { get; set; }
+        [Display(Name = "Synopsis")]
+        public string Sinopse { get; set; }
 		
 		public string Capa { get; set; }
 

@@ -4,22 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Movies</h2>
 
-@if (User.IsInRole("Admin"))
+@if(User.IsInRole("Admin"))
 {
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
-    <div style=" display:flex; flex-wrap:wrap; flex-direction:row; justify-content:space-around; align-content:center; margin-top:30px;">
+<p  >
+    @Html.ActionLink("Create New", "Create")
+</p>
+   
+} 
+    <div style=" display:flex; flex-wrap:wrap; flex-direction:row; justify-content:space-around; align-content:center; margin-top:30px; ">
         @foreach (var item in Model)
         {
 
         <div style="padding-top: 15px">
             <a href="~/Filmes/Details/@item.ID">
                 <img src="~/imagens/CapasFilmes/@item.Capa" height="250" />
-                <figcaption style=" text-align: center">@item.Titulo</figcaption>
+                <figcaption style=" text-align: center; color:white; font-weight:400">@item.Titulo</figcaption>
             </a>
            
         </div>

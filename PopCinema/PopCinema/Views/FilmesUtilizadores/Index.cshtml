@@ -4,12 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+@if (User.IsInRole("Admin"))
+{
+    <p style="color:white; font-weight:400; background-color:black">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+}
+<table class="table" style="color:white; font-weight:400; background-color:black">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Filme.Titulo)
@@ -23,23 +26,26 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Filme.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comentario)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr style="color:white; font-weight:400; background-color:black">
+            <td>
+                @Html.DisplayFor(modelItem => item.Filme.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utilizador.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin")) { 
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                }
+            </td>
+        </tr>
+    }
 
 </table>
